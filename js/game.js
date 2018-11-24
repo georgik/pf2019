@@ -1,10 +1,10 @@
 const store = new Vuex.Store({
     state: {
         levelMap:  [
-            "WWWWW",
-            "W OXW",
-            "W   W",
-            "WWWWW"]
+            "wwwww",
+            "w  ww",
+            "w   w",
+            "wwwww"]
     }
 });
 

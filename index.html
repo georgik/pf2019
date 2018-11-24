@@ -11,7 +11,7 @@
 <script type="text/x-template" id="playground-template">
     <div>
     <div v-for="(tileRow, rowIndex) in levelMap">
-        <span class="tile" :style="{ top: rowIndex*20 + 'px', left: tileIndex*20 + 'px'}" v-for="(tileName, tileIndex) in tileRow">{{tileName}}</span>
+        <span :class="['tile tile-' + tileName]" :style="{ top: rowIndex*64 + 'px', left: tileIndex*64 + 'px'}" v-for="(tileName, tileIndex) in tileRow"></span>
     </div>
     </div>
 </script>
