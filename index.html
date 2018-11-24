@@ -16,8 +16,18 @@
     </div>
 </script>
 
+<script type="text/x-template" id="stage-template">
+    <div>
+    <div v-for="(actor, index) in actors">
+        {{actor.name}}
+        <span :class="['actor actor-' + actor.name]" :style="{ top: actor.x + 'px', left: actor.y + 'px' }"></span>
+    </div>
+    </div>
+</script>
+
 <div id="game">
     <playground></playground>
+    <stage></stage>
 </div>
 
 </body>
