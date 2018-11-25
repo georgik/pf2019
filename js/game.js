@@ -8,6 +8,14 @@ const store = new Vuex.Store({
             "w  ww",
             "w   w",
             "wwwww"],
+        tile: {
+            width: tileWidth,
+            height: tileHeight,
+        },
+        level: {
+            width: 5 * tileWidth,
+            height: 4 * tileWidth
+        },
         actors: [
             { 
                 name: 'avatar',
@@ -23,23 +31,23 @@ const store = new Vuex.Store({
     },
     mutations: {
         moveRight (state) {
-            if (state.actors[0].x < 1024) {
-                state.actors[0].x += tileWidth;
+            if (state.actors[0].x < state.level.width - state.tile.width) {
+                state.actors[0].x += state.tile.width;
             }
         },
         moveLeft (state) {
             if (state.actors[0].x > 0) {
-                state.actors[0].x -= tileWidth;
+                state.actors[0].x -= state.tile.width;
             }
         },
         moveDown (state) {
-            if (state.actors[0].y < 1024) {
-                state.actors[0].y += tileHeight;
+            if (state.actors[0].y < state.level.height - state.tile.height) {
+                state.actors[0].y += state.tile.height;
             }
         },
         moveUp (state) {
             if (state.actors[0].y > 0) {
-                state.actors[0].y -= tileHeight;
+                state.actors[0].y -= state.tile.height;
             }
         },
     }
