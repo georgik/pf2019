@@ -3,7 +3,7 @@ const tileHeight = 64;
 
 const store = new Vuex.Store({
     state: {
-        levelMap:  [
+        levelMap: [
             "wwwww",
             "w  ww",
             "w   w",
@@ -17,12 +17,12 @@ const store = new Vuex.Store({
             height: 4 * tileWidth
         },
         actors: [
-            { 
+            {
                 name: 'avatar',
                 x: 64,
                 y: 64
             },
-            { 
+            {
                 name: 'mfd',
                 x: 128,
                 y: 64
@@ -30,22 +30,20 @@ const store = new Vuex.Store({
         ]
     },
     mutations: {
-        moveRight (state) {
-            if (state.actors[0].x < state.level.width - state.tile.width) {
-                state.actors[0].x += state.tile.width;
-            }
+        moveRight(state) {
+            state.actors[0].x += state.tile.width;
         },
-        moveLeft (state) {
+        moveLeft(state) {
             if (state.actors[0].x > 0) {
                 state.actors[0].x -= state.tile.width;
             }
         },
-        moveDown (state) {
+        moveDown(state) {
             if (state.actors[0].y < state.level.height - state.tile.height) {
                 state.actors[0].y += state.tile.height;
             }
         },
-        moveUp (state) {
+        moveUp(state) {
             if (state.actors[0].y > 0) {
                 state.actors[0].y -= state.tile.height;
             }
@@ -64,8 +62,7 @@ Vue.component('playground', {
         }
     },
 
-    methods: {
-    }
+    methods: {}
 });
 
 
@@ -81,21 +78,22 @@ Vue.component('stage', {
 });
 
 
-
 var game = new Vue({
     el: '#game',
     store,
-    data: {
-    },
+    data: {},
     methods: {
-        mouseClicked: function(event) {
+        mouseClicked: function (event) {
             var avatar = this.$store.state.actors[0];
             var deltaX = event.clientX - avatar.x - 32;
             var deltaY = event.clientY - avatar.y - 32;
+            var maxX = this.$store.state.level.width - this.$store.state.tile.width;
 
             if (Math.abs(deltaX) > Math.abs(deltaY)) {
                 if (deltaX > 0) {
-                    store.commit('moveRight');
+                    if (avatar.x < maxX) {
+                        store.commit('moveRight');
+                    }
                 } else {
                     store.commit('moveLeft');
                 }

@@ -1,36 +1,37 @@
-<!DOCTYPE html!>
+<!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="css/game.css" />
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script type="text/javascript" src="js/vuex-3.0.1.js"></script>
-    <script type="text/javascript" src="js/levels.js"></script>
-  </head>
-  <body>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/game.css"/>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript" src="js/vuex-3.0.1.js"></script>
+  <script type="text/javascript" src="js/levels.js"></script>
+</head>
+<body>
 
-    <script type="text/x-template" id="playground-template">
-      <div>
-        <div v-for="(tileRow, rowIndex) in levelMap">
-          <span :class="['tile tile-' + tileName]" :style="{ top: rowIndex*64 + 'px', left: tileIndex*64 + 'px'}" v-for="(tileName, tileIndex) in tileRow"></span>
-        </div>
-      </div>
-    </script>
-
-    <script type="text/x-template" id="stage-template">
-      <div>
-        <div v-for="(actor, index) in actors">
-            {{actor.name}}
-            <span :class="['actor actor-' + actor.name]" :style="{ top: actor.y + 'px', left: actor.x + 'px' }"></span>
-        </div>
-      </div>
-    </script>
-
-    <div id="game"
-         @click="mouseClicked">
-      <playground></playground>
-      <stage></stage>
+<script type="text/x-template" id="playground-template">
+  <div>
+    <div v-for="(tileRow, rowIndex) in levelMap">
+            <span :class="['tile tile-' + tileName]" :style="{ top: rowIndex*64 + 'px', left: tileIndex*64 + 'px'}"
+                  v-for="(tileName, tileIndex) in tileRow"></span>
     </div>
+  </div>
+</script>
 
-  </body>
-  <script type="text/javascript" src="js/game.js"></script>
+<script type="text/x-template" id="stage-template">
+  <div>
+    <div v-for="(actor, index) in actors">
+      {{actor.name}}
+      <span :class="['actor actor-' + actor.name]" :style="{ top: actor.y + 'px', left: actor.x + 'px' }"></span>
+    </div>
+  </div>
+</script>
+
+<div id="game"
+     @click="mouseClicked">
+  <playground></playground>
+  <stage></stage>
+</div>
+
+</body>
+<script type="text/javascript" src="js/game.js"></script>
 </html>
