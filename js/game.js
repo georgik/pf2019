@@ -34,19 +34,13 @@ let store = new Vuex.Store({
             state.actors[0].x += state.tile.width;
         },
         moveLeft(state) {
-            if (state.actors[0].x > 0) {
-                state.actors[0].x -= state.tile.width;
-            }
+            state.actors[0].x -= state.tile.width;
         },
         moveDown(state) {
-            if (state.actors[0].y < state.level.height - state.tile.height) {
-                state.actors[0].y += state.tile.height;
-            }
+            state.actors[0].y += state.tile.height;
         },
         moveUp(state) {
-            if (state.actors[0].y > 0) {
-                state.actors[0].y -= state.tile.height;
-            }
+            state.actors[0].y -= state.tile.height;
         },
     }
 });
@@ -88,6 +82,7 @@ let game = new Vue({
             let deltaX = event.clientX - avatar.x - 32;
             let deltaY = event.clientY - avatar.y - 32;
             let maxX = this.$store.state.level.width - this.$store.state.tile.width;
+            let maxY = this.$store.state.level.height - this.$store.state.tile.height;
 
             if (Math.abs(deltaX) > Math.abs(deltaY)) {
                 if (deltaX > 0) {
@@ -95,13 +90,19 @@ let game = new Vue({
                         store.commit('moveRight');
                     }
                 } else {
-                    store.commit('moveLeft');
+                    if (avatar.x > 0) {
+                        store.commit('moveLeft');
+                    }
                 }
             } else {
                 if (deltaY > 0) {
-                    store.commit('moveDown');
+                    if (avatar.y < maxY) {
+                        store.commit('moveDown');
+                    }
                 } else {
-                    store.commit('moveUp');
+                    if (avatar.y > 0) {
+                        store.commit('moveUp');
+                    }
                 }
             }
         }
