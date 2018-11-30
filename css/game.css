@@ -3,7 +3,7 @@ body {
 }
 
 .tile {
-    width: 64;
+    width: 64px;
     height: 64px;
     position: absolute;
     background: url(../data/images/gfx64/tiles.png) 0 0;
@@ -14,7 +14,7 @@ body {
 }
 
 .actor {
-    width: 64;
+    width: 64px;
     height: 64px;
     position: absolute;
     background: url(../data/images/gfx64/tiles.png) 0 0;
@@ -26,4 +26,8 @@ body {
 
 .actor-mfd {
     background: url(../data/images/gfx64/tiles.png) -320px -128px;
+}
+
+#game {
+    position: relative;
 }

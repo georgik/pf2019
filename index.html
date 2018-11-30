@@ -20,7 +20,6 @@
 <script type="text/x-template" id="stage-template">
   <div>
     <div v-for="(actor, index) in actors">
-      {{actor.name}}
       <span :class="['actor actor-' + actor.name]" :style="{ top: actor.y + 'px', left: actor.x + 'px' }"></span>
     </div>
   </div>
