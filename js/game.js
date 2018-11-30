@@ -1,7 +1,7 @@
 const tileWidth = 64;
 const tileHeight = 64;
 
-const store = new Vuex.Store({
+let store = new Vuex.Store({
     state: {
         levelMap: [
             "wwwww",
@@ -78,16 +78,16 @@ Vue.component('stage', {
 });
 
 
-var game = new Vue({
+let game = new Vue({
     el: '#game',
     store,
     data: {},
     methods: {
         mouseClicked: function (event) {
-            var avatar = this.$store.state.actors[0];
-            var deltaX = event.clientX - avatar.x - 32;
-            var deltaY = event.clientY - avatar.y - 32;
-            var maxX = this.$store.state.level.width - this.$store.state.tile.width;
+            let avatar = this.$store.state.actors[0];
+            let deltaX = event.clientX - avatar.x - 32;
+            let deltaY = event.clientY - avatar.y - 32;
+            let maxX = this.$store.state.level.width - this.$store.state.tile.width;
 
             if (Math.abs(deltaX) > Math.abs(deltaY)) {
                 if (deltaX > 0) {
@@ -106,4 +106,4 @@ var game = new Vue({
             }
         }
     }
-})
+});
