@@ -30,18 +30,10 @@ let store = new Vuex.Store({
         ]
     },
     mutations: {
-        moveRight(state) {
-            state.actors[0].x += state.tile.width;
-        },
-        moveLeft(state) {
-            state.actors[0].x -= state.tile.width;
-        },
-        moveDown(state) {
-            state.actors[0].y += state.tile.height;
-        },
-        moveUp(state) {
-            state.actors[0].y -= state.tile.height;
-        },
+        moveVector(state, { actor, vectorX, vectorY }) {
+            actor.x += vectorX * state.tile.width;
+            actor.y += vectorY * state.tile.height;
+        }
     }
 });
 
@@ -77,40 +69,55 @@ let game = new Vue({
     store,
     data: {},
     methods: {
-        isWalkable: function(coordX, coordY) {
+        getTile: function(coordX, coordY) {
             let tileX = coordX / this.$store.state.tile.width;
             let tileY = coordY / this.$store.state.tile.height;
-            let tile = this.$store.state.levelMap[tileY][tileX];
-            return (tile === " ");
+            return this.$store.state.levelMap[tileY][tileX];
         },
-        mouseClicked: function (event) {
-            let avatar = this.$store.state.actors[0];
-            let deltaX = event.clientX - avatar.x - 32;
-            let deltaY = event.clientY - avatar.y - 32;
+        isWalkable: function(coordX, coordY) {
+            return (this.getTile(coordX, coordY) === " ");
+        },
+        getBox: function(coordX, coordY) {
+            for (let actorIndex=1; actorIndex<len(this.$store.state.actors); actorIndex++) {
+                let actor = this.$store.state.actors[actorIndex];
+                if ((actor.x === coordX) && (actor.y === coordY)) {
+                    return actor;
+                }
+            }
+            return null;
+        },
+        moveActor: function(actor, vectorX, vectorY) {
             let tileWidth = this.$store.state.tile.width;
             let tileHeight = this.$store.state.tile.height;
             let maxX = this.$store.state.level.width - tileWidth;
             let maxY = this.$store.state.level.height - tileHeight;
 
+            // Movement should remain in playground
+            if ((actor.x >= maxX) || (actor.y >= maxY) || (actor.x <= 0) || (actor.y <= 0)) {
+                return;
+            }
+            // It's not possible to walk through walls
+            if (!this.isWalkable(actor.x + vectorX * tileWidth, actor.y + vectorY * tileHeight)) {
+                return;
+            }
+            store.commit('moveVector', { actor, vectorX, vectorY });
+        },
+        mouseClicked: function (event) {
+            let avatar = this.$store.state.actors[0];
+            let deltaX = event.clientX - avatar.x - 32;
+            let deltaY = event.clientY - avatar.y - 32;
+
             if (Math.abs(deltaX) > Math.abs(deltaY)) {
                 if (deltaX > 0) {
-                    if ((avatar.x < maxX) && (this.isWalkable(avatar.x + tileWidth, avatar.y))) {
-                        store.commit('moveRight');
-                    }
+                    this.moveActor(avatar, 1, 0);
                 } else {
-                    if ((avatar.x > 0) && (this.isWalkable(avatar.x - tileWidth, avatar.y))) {
-                        store.commit('moveLeft');
-                    }
+                    this.moveActor(avatar, -1, 0);
                 }
             } else {
                 if (deltaY > 0) {
-                    if ((avatar.y < maxY) && (this.isWalkable(avatar.x, avatar.y + tileHeight))) {
-                        store.commit('moveDown');
-                    }
+                    this.moveActor(avatar, 0, 1);
                 } else {
-                    if ((avatar.y > 0) && (this.isWalkable(avatar.x, avatar.y - tileHeight))) {
-                        store.commit('moveUp');
-                    }
+                    this.moveActor(avatar, 0, -1);
                 }
             }
         }
