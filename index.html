@@ -29,8 +29,9 @@
 
 <script type="text/x-template" id="level-selector-template">
   <div>Select level
-    <router-link :to="`/level/1`">Level 1</router-link>
-    <router-link :to="`/level/2`">Level 2</router-link>
+    <div v-for="(level, index) in levels">
+      <router-link :to="`/level/${index+1}`">Level {{ index + 1 }}</router-link>
+    </div>
   </div>
 </script>
 
