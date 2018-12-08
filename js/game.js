@@ -3,13 +3,17 @@ const tileHeight = 64;
 
 let store = new Vuex.Store({
     state: {
-        levelMap: [
-            "wwwwwww",
-            "w     w",
-            "w     w",
-            "w   o w",
-            "w     w",
-            "wwwwwww "],
+        levels: [{
+            levelMap: [
+                "wwwwwww",
+                "wa    w",
+                "w  o  w",
+                "w   x w",
+                "w     w",
+                "wwwwwww"]
+
+        }],
+        levelMap: [],
         tile: {
             width: tileWidth,
             height: tileHeight,
@@ -18,23 +22,37 @@ let store = new Vuex.Store({
             width: 7 * tileWidth,
             height: 6 * tileWidth
         },
-        actors: [
-            {
-                name: 'avatar',
-                x: 64,
-                y: 64
-            },
-            {
-                name: 'mfd',
-                x: 2 * tileWidth,
-                y: 2 * tileHeight
-            }
-        ]
+        actors: [ ]
     },
     mutations: {
         moveVector(state, { actor, vectorX, vectorY }) {
             actor.x += vectorX * state.tile.width;
             actor.y += vectorY * state.tile.height;
+        },
+        loadLevel(state, levelIndex) {
+            let storedLevel = state.levels[levelIndex];
+            state.levelMap = storedLevel.levelMap;
+            for(let y = 0; y < storedLevel.levelMap.length; y++) {
+                for (let x = 0; x < storedLevel.levelMap[y].length; x++) {
+                    let tile = storedLevel.levelMap[y][x];
+
+                    if (tile === "a") {
+                        state.actors.unshift({
+                            name: 'avatar',
+                            x: x * tileWidth,
+                            y: y * tileHeight
+                        });
+                        state.levelMap[y][x] = " ";
+                    } else if (tile === "o") {
+                        state.actors.push( {
+                            name: 'mfd',
+                            x: x * tileWidth,
+                            y: y * tileHeight
+                        });
+                        state.levelMap[y][x] = " ";
+                    }
+                }
+            }
         }
     }
 });
@@ -78,10 +96,10 @@ let game = new Vue({
         },
         isWalkable: function(coordX, coordY) {
             let tile = this.getTile(coordX, coordY)
-            return ((tile === " ") || (tile === "o") );
+            return ((tile === " ") || (tile === "x") || (tile === "o"));
         },
         isFinalPosition: function(coordX, coordY) {
-            return (this.getTile(coordX, coordY) === "o");
+            return (this.getTile(coordX, coordY) === "x");
         },
         getCollision: function(coordX, coordY) {
             for (let actorIndex=1; actorIndex<this.$store.state.actors.length; actorIndex++) {
@@ -156,5 +174,8 @@ let game = new Vue({
                 }
             }
         }
+    },
+    beforeMount() {
+        store.commit("loadLevel", 0);
     }
 });

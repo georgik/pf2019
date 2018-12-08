@@ -13,7 +13,7 @@ body {
     background: url(../data/images/gfx64/tiles.png) 0 -192px;
 }
 
-.tile-o {
+.tile-x {
     background: url(../data/images/gfx64/tiles.png) -128px 0;
 }
 
