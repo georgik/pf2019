@@ -10,8 +10,13 @@ body {
 }
 
 .tile-w {
-    background: url(../data/images/gfx64/tiles.png) 0 192px;
+    background: url(../data/images/gfx64/tiles.png) 0 -192px;
 }
+
+.tile-o {
+    background: url(../data/images/gfx64/tiles.png) -128px 0;
+}
+
 
 .actor {
     width: 64px;

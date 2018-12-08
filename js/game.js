@@ -4,17 +4,19 @@ const tileHeight = 64;
 let store = new Vuex.Store({
     state: {
         levelMap: [
-            "wwwww",
-            "w   w",
-            "w   w",
-            "wwwww"],
+            "wwwwwww",
+            "w     w",
+            "w     w",
+            "w   o w",
+            "w     w",
+            "wwwwwww "],
         tile: {
             width: tileWidth,
             height: tileHeight,
         },
         level: {
-            width: 5 * tileWidth,
-            height: 4 * tileWidth
+            width: 7 * tileWidth,
+            height: 6 * tileWidth
         },
         actors: [
             {
@@ -24,8 +26,8 @@ let store = new Vuex.Store({
             },
             {
                 name: 'mfd',
-                x: 128,
-                y: 64
+                x: 2 * tileWidth,
+                y: 2 * tileHeight
             }
         ]
     },
@@ -75,7 +77,11 @@ let game = new Vue({
             return this.$store.state.levelMap[tileY][tileX];
         },
         isWalkable: function(coordX, coordY) {
-            return (this.getTile(coordX, coordY) === " ");
+            let tile = this.getTile(coordX, coordY)
+            return ((tile === " ") || (tile === "o") );
+        },
+        isFinalPosition: function(coordX, coordY) {
+            return (this.getTile(coordX, coordY) === "o");
         },
         getCollision: function(coordX, coordY) {
             for (let actorIndex=1; actorIndex<this.$store.state.actors.length; actorIndex++) {
@@ -104,6 +110,15 @@ let game = new Vue({
             store.commit('moveVector', { actor, vectorX, vectorY });
             return true;
         },
+        isSolved() {
+            for (let actorIndex=1; actorIndex<this.$store.state.actors.length; actorIndex++) {
+                let actor = this.$store.state.actors[actorIndex];
+                if (!this.isFinalPosition(actor.x, actor.y)) {
+                    return false;
+                }
+            }
+            return true;
+        },
         moveAvatar: function(avatar, vectorX, vectorY) {
             let tileWidth = this.$store.state.tile.width;
             let tileHeight = this.$store.state.tile.height;
@@ -116,7 +131,11 @@ let game = new Vue({
                     return;
                 }
             }
-            this.moveActor(avatar, vectorX, vectorY)
+            this.moveActor(avatar, vectorX, vectorY);
+
+            if (this.isSolved()) {
+                alert("Solved");
+            }
         },
         mouseClicked: function (event) {
             let avatar = this.$store.state.actors[0];
