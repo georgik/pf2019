@@ -16,6 +16,16 @@ const datadisc = [
             "w xox w",
             "w     w",
             "wwwwwww"]
+    },
+    {
+        levelMap: [
+            "wwwwwww",
+            "wa    w",
+            "w  oo w",
+            "w xox w",
+            "w  x  w",
+            "wwwwwww"]
     }
+
 ];
 

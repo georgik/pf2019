@@ -4,7 +4,9 @@
   <link rel="stylesheet" type="text/css" href="css/game.css"/>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script type="text/javascript" src="js/vuex-3.0.1.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
   <script type="text/javascript" src="js/levels.js"></script>
+  <script type="text/javascript" src="js/store.js"></script>
 </head>
 <body>
 
@@ -25,12 +27,27 @@
   </div>
 </script>
 
-<div id="game"
-     @click="mouseClicked">
-  <playground></playground>
-  <stage></stage>
+<script type="text/x-template" id="level-selector-template">
+  <div>Select level
+    <router-link :to="`/level/1`">Level 1</router-link>
+    <router-link :to="`/level/2`">Level 2</router-link>
+  </div>
+</script>
+
+<script type="text/x-template" id="game-stage-template">
+  <div id="game"
+       @click="mouseClicked">
+    <playground></playground>
+    <stage></stage>
+  </div>
+</script>
+
+<div id="app">
+  <router-view></router-view>
 </div>
 
 </body>
+<script type="text/javascript" src="js/level-selector.js"></script>
 <script type="text/javascript" src="js/game.js"></script>
+<script type="text/javascript" src="js/router.js"></script>
 </html>
