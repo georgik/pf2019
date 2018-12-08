@@ -146,6 +146,13 @@ let game = new Vue({
             let actor = this.getCollision(avatar.x + vectorX * tileWidth, avatar.y + vectorY * tileHeight);
 
             if (actor != null) {
+
+                // 2nd actor in the row is not movable
+                let actor2 = this.getCollision(avatar.x + vectorX * 2 * tileWidth, avatar.y + vectorY * 2 * tileHeight);
+                if (actor2 != null) {
+                    return;
+                }
+
                 let isMovable = this.moveActor(actor, vectorX, vectorY);
                 if (!isMovable) {
                     return;
