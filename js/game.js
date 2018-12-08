@@ -3,16 +3,7 @@ const tileHeight = 64;
 
 let store = new Vuex.Store({
     state: {
-        levels: [{
-            levelMap: [
-                "wwwwwww",
-                "wa    w",
-                "w  o  w",
-                "w   x w",
-                "w     w",
-                "wwwwwww"]
-
-        }],
+        levels: datadisc,
         levelMap: [],
         tile: {
             width: tileWidth,
