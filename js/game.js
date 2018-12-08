@@ -22,9 +22,11 @@ let store = new Vuex.Store({
         },
         loadLevel(state, levelIndex) {
             let storedLevel = state.levels[levelIndex];
-            state.levelMap = storedLevel.levelMap;
+            // state.levelMap = storedLevel.levelMap;
+            state.levelMap = [];
 
             for(let y = 0; y < storedLevel.levelMap.length; y++) {
+                state.levelMap.push([]);
                 for (let x = 0; x < storedLevel.levelMap[y].length; x++) {
                     let tile = storedLevel.levelMap[y][x];
 
@@ -34,15 +36,17 @@ let store = new Vuex.Store({
                             x: x * tileWidth,
                             y: y * tileHeight
                         });
-                        state.levelMap[y][x] = " ";
+                        tile = " ";
+
                     } else if (tile === "o") {
                         state.actors.push( {
                             name: 'mfd',
                             x: x * tileWidth,
                             y: y * tileHeight
                         });
-                        state.levelMap[y][x] = " ";
+                        tile = " ";
                     }
+                    state.levelMap[y].push(tile);
                 }
             }
 
@@ -174,6 +178,6 @@ let game = new Vue({
         }
     },
     beforeMount() {
-        store.commit("loadLevel", 0);
+        store.commit("loadLevel", 1);
     }
 });
