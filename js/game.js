@@ -5,7 +5,7 @@ let store = new Vuex.Store({
     state: {
         levelMap: [
             "wwwww",
-            "w  ww",
+            "w   w",
             "w   w",
             "wwwww"],
         tile: {
@@ -77,8 +77,8 @@ let game = new Vue({
         isWalkable: function(coordX, coordY) {
             return (this.getTile(coordX, coordY) === " ");
         },
-        getBox: function(coordX, coordY) {
-            for (let actorIndex=1; actorIndex<len(this.$store.state.actors); actorIndex++) {
+        getCollision: function(coordX, coordY) {
+            for (let actorIndex=1; actorIndex<this.$store.state.actors.length; actorIndex++) {
                 let actor = this.$store.state.actors[actorIndex];
                 if ((actor.x === coordX) && (actor.y === coordY)) {
                     return actor;
@@ -94,13 +94,29 @@ let game = new Vue({
 
             // Movement should remain in playground
             if ((actor.x >= maxX) || (actor.y >= maxY) || (actor.x <= 0) || (actor.y <= 0)) {
-                return;
+                return false;
             }
+
             // It's not possible to walk through walls
             if (!this.isWalkable(actor.x + vectorX * tileWidth, actor.y + vectorY * tileHeight)) {
-                return;
+                return false;
             }
             store.commit('moveVector', { actor, vectorX, vectorY });
+            return true;
+        },
+        moveAvatar: function(avatar, vectorX, vectorY) {
+            let tileWidth = this.$store.state.tile.width;
+            let tileHeight = this.$store.state.tile.height;
+
+            let actor = this.getCollision(avatar.x + vectorX * tileWidth, avatar.y + vectorY * tileHeight);
+
+            if (actor != null) {
+                let isMovable = this.moveActor(actor, vectorX, vectorY);
+                if (!isMovable) {
+                    return;
+                }
+            }
+            this.moveActor(avatar, vectorX, vectorY)
         },
         mouseClicked: function (event) {
             let avatar = this.$store.state.actors[0];
@@ -109,15 +125,15 @@ let game = new Vue({
 
             if (Math.abs(deltaX) > Math.abs(deltaY)) {
                 if (deltaX > 0) {
-                    this.moveActor(avatar, 1, 0);
+                    this.moveAvatar(avatar, 1, 0);
                 } else {
-                    this.moveActor(avatar, -1, 0);
+                    this.moveAvatar(avatar, -1, 0);
                 }
             } else {
                 if (deltaY > 0) {
-                    this.moveActor(avatar, 0, 1);
+                    this.moveAvatar(avatar, 0, 1);
                 } else {
-                    this.moveActor(avatar, 0, -1);
+                    this.moveAvatar(avatar, 0, -1);
                 }
             }
         }
