@@ -128,7 +128,7 @@ let gameStage = Vue.component('GameStage', {
             }
         }
     },
-    beforeMount() {
+    created() {
         store.commit("loadLevel", this.$props.levelIndex);
-    }
+    },
 });

@@ -25,6 +25,7 @@ let store = new Vuex.Store({
             let storedLevel = state.levels[levelIndex];
             // state.levelMap = storedLevel.levelMap;
             state.levelMap = [];
+            state.actors = [];
 
             for(let y = 0; y < storedLevel.levelMap.length; y++) {
                 state.levelMap.push([]);
