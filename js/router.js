@@ -1,7 +1,13 @@
 
+function levelIndexMapper (route) {
+    return {
+        levelIndex:  parseInt(route.params.levelIndex) - 1
+    };
+}
+
 const routes = [
     { path: '/', component: levelSelector },
-    { path: '/level/:id', component: gameStage }
+    { path: '/level/:levelIndex', component: gameStage, props: levelIndexMapper }
 ];
 
 

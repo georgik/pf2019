@@ -28,6 +28,12 @@ Vue.component('stage', {
 let gameStage = Vue.component('GameStage', {
     template: '#game-stage-template',
     store,
+    props: {
+        levelIndex: {
+            type: Number,
+            default: 0
+        }
+    },
     methods: {
         getTile: function(coordX, coordY) {
             let tileX = coordX / this.$store.state.tile.width;
@@ -123,6 +129,6 @@ let gameStage = Vue.component('GameStage', {
         }
     },
     beforeMount() {
-        store.commit("loadLevel", 2);
+        store.commit("loadLevel", this.$props.levelIndex);
     }
 });
