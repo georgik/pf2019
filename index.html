@@ -2,6 +2,7 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="css/game.css"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script type="text/javascript" src="js/vuex-3.0.1.js"></script>
   <script type="text/javascript" src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
@@ -35,6 +36,20 @@
   </div>
 </script>
 
+<script type="text/x-template" id="level-complete-template">
+  <div>
+    <div id="congratulation">Congratulations!</div>
+    <div>
+      <router-link :to="`/level/${levelIndex + 1}`"><i class="fa fa-redo"></i> Play again</router-link>
+      <router-link :to="`/level/${levelIndex + 2}`"><i class="fa fa-arrow-right"></i> Next level</router-link>
+    </div>
+    <div>
+      <a class="levelButton" id="webButton" href="https://georgik.rocks/tag/games" >
+        <i class="fa fa-thumbs-up" ></i>Visit PF 2019 website</a>
+    </div>
+  </div>
+</script>
+
 <script type="text/x-template" id="game-stage-template">
   <div id="game"
        @click="mouseClicked">
@@ -49,6 +64,7 @@
 
 </body>
 <script type="text/javascript" src="js/level-selector.js"></script>
+<script type="text/javascript" src="js/level-complete.js"></script>
 <script type="text/javascript" src="js/game.js"></script>
 <script type="text/javascript" src="js/router.js"></script>
 </html>

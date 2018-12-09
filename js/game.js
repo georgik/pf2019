@@ -105,7 +105,7 @@ let gameStage = Vue.component('GameStage', {
             this.moveActor(avatar, vectorX, vectorY);
 
             if (this.isSolved()) {
-                alert("Solved");
+                this.$router.push({ path: `/level/${this.$props.levelIndex + 1}/complete` });
             }
         },
         mouseClicked: function (event) {
