@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <title>PF 2019 - Sokoban-like game</title>
   <link rel="stylesheet" type="text/css" href="css/game.css"/>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -41,7 +43,7 @@
     <div id="congratulation">Congratulations!</div>
     <div>
       <router-link :to="`/level/${levelIndex + 1}`"><i class="fa fa-redo"></i> Play again</router-link>
-      <router-link :to="`/level/${levelIndex + 2}`"><i class="fa fa-arrow-right"></i> Next level</router-link>
+      <router-link :to="`/level/${levelIndex + 2}`"><i class="fa fa-arrow-right "></i> Next level</router-link>
     </div>
     <div>
       <a class="levelButton" id="webButton" href="https://georgik.rocks/tag/games" >
