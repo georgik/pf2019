@@ -29,7 +29,7 @@
 
 <script type="text/x-template" id="level-selector-template">
   <div>Select level
-    <div v-for="(level, index) in levels">
+    <div v-for="(level, index) in levels" class="levelSelectorButton">
       <router-link :to="`/level/${index+1}`">Level {{ index + 1 }}</router-link>
     </div>
   </div>

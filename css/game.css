@@ -1,6 +1,25 @@
 body {
     background: #121d35;
     color: white;
+    font-family: Arial, Verdana, sans-serif;
+}
+
+.levelSelectorButton {
+    font-size: 1.2em;
+    background: darkslateblue;
+    border: 2px solid lightgray;
+    padding-top: 1em;
+    padding-bottom: 0.2em;
+    padding-right: 0.5em;
+    margin: 1em;
+    cursor: pointer;
+    width: 5em;
+    float: left;
+    text-align: center;
+}
+
+a {
+    color: yellow;
 }
 
 .tile {
