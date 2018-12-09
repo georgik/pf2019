@@ -34,7 +34,7 @@ a {
 }
 
 .tile-x {
-    background: url(../data/images/gfx64/tiles.png) -128px 0;
+    background: url(../data/images/gfx64/tiles.png) -320px -192px;
 }
 
 
@@ -50,7 +50,7 @@ a {
 }
 
 .actor-mfd {
-    background: url(../data/images/gfx64/tiles.png) -320px -128px;
+    background: url(../data/images/gfx64/tiles.png) -256px -192px;
 }
 
 #game {
