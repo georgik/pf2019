@@ -1,6 +1,11 @@
 Vue.component('navigation-bar', {
-   template: '#navigation-bar-template',
-   store
+    template: '#navigation-bar-template',
+    store,
+    computed: {
+        levelName() {
+            return this.$store.state.level.name;
+        }
+    }
 });
 
 Vue.component('playground', {

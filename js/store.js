@@ -12,7 +12,8 @@ let store = new Vuex.Store({
         },
         level: {
             width: 0,
-            height: 0
+            height: 0,
+            name: ""
         },
         actors: [ ]
     },
@@ -55,7 +56,8 @@ let store = new Vuex.Store({
             // Compute stage size
             state.level = {
                 height: storedLevel.levelMap.length * tileWidth,
-                width: storedLevel.levelMap[0].length * tileWidth
+                width: storedLevel.levelMap[0].length * tileWidth,
+                name: levelIndex + 1
             }
         }
     }
