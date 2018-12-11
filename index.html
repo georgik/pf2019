@@ -13,6 +13,12 @@
 </head>
 <body>
 
+<script type="text/x-template" id="navigation-bar-template">
+  <div class="navigation-bar">
+    <div class="navigation-button"><router-link to="/"><i class="fa fa-arrow-left"></i></router-link></div>
+  </div>
+</script>
+
 <script type="text/x-template" id="playground-template">
   <div>
     <div v-for="(tileRow, rowIndex) in levelMap">
@@ -53,10 +59,13 @@
 </script>
 
 <script type="text/x-template" id="game-stage-template">
-  <div id="game"
-       @click="mouseClicked">
-    <playground></playground>
-    <stage></stage>
+  <div >
+  <navigation-bar></navigation-bar>
+    <div id="game"
+         @click="mouseClicked">
+      <playground></playground>
+      <stage></stage>
+    </div>
   </div>
 </script>
 

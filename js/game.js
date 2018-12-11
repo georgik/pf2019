@@ -1,3 +1,8 @@
+Vue.component('navigation-bar', {
+   template: '#navigation-bar-template',
+   store
+});
+
 Vue.component('playground', {
     template: '#playground-template',
     store,

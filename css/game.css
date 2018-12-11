@@ -56,3 +56,15 @@ a {
 #game {
     position: relative;
 }
+
+.navigation-button {
+    cursor: pointer;
+    text-align:left;
+}
+
+.navigation-bar {
+    background: #75755f;
+    font-size: xx-large;
+    padding: 2px 10px 2px 10px;
+    color: white;
+}
