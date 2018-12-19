@@ -34,6 +34,42 @@ Vue.component('stage', {
     }
 });
 
+Vue.component('level-access-button', {
+    template: '#level-access-button-template',
+    computed: {
+        type () {
+            if (!this.isLocked) {
+                return 'router-link'
+            }
+
+            return 'div'
+        },
+        value () {
+            if (this.isLocked) {
+                return '';
+            }
+
+            return this.text;
+        },
+        classObject () {
+            if (this.isLocked) {
+                return 'level-lock fas fa-lock'
+            }
+        }
+    },
+    props: {
+        isLocked: {
+            type: Boolean
+        },
+        to: {
+            type: String
+        },
+        text: {
+            type: String
+        }
+    }
+});
+
 
 let gameStage = Vue.component('GameStage', {
     template: '#game-stage-template',
@@ -142,3 +178,4 @@ let gameStage = Vue.component('GameStage', {
         store.commit("loadLevel", this.$props.levelIndex);
     },
 });
+

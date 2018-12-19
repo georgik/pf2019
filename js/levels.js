@@ -6,7 +6,8 @@ const datadisc = [
             "w  o  w",
             "w   x w",
             "w     w",
-            "wwwwwww"]
+            "wwwwwww"],
+        isLocked: false
     },
     {
         levelMap: [
@@ -15,7 +16,8 @@ const datadisc = [
             "w  o  w",
             "w xox w",
             "w     w",
-            "wwwwwww"]
+            "wwwwwww"],
+        isLocked: false
     },
     {
         levelMap: [
@@ -24,7 +26,8 @@ const datadisc = [
             "w  oo w",
             "w xox w",
             "w  x  w",
-            "wwwwwww"]
+            "wwwwwww"],
+        isLocked: true
     },
     {
         levelMap: [
@@ -33,7 +36,8 @@ const datadisc = [
             "w o     xw",
             "wwowo  xw",
             "w  x   w",
-            "wwwwwww"]
+            "wwwwwww"],
+        isLocked: true
     },
     {
         levelMap: [
@@ -46,7 +50,8 @@ const datadisc = [
             "w   o   o  w",
             "w   ooooo  w",
             "w          w",
-            "wwwwwwwwwwww"]
+            "wwwwwwwwwwww"],
+        isLocked: true
     },
     {
         levelMap: [
@@ -60,7 +65,34 @@ const datadisc = [
             "wwwwwwwww  w",
             "w  o    oo w",
             "w          w",
-            "wwwwwwwwwwww"]
-    }
+            "wwwwwwwwwwww"],
+        isLocked: true
+    },
+    {
+        levelMap: [
+            "     wwww",
+            "    w x w",
+            "   w ox w",
+            "  w o   w",
+            " w oa www",
+            "w o  ww  ",
+            "wxx w    ",
+            "w   w    ",
+            "wwwww    "],
+        isLocked: true
+    },
+    {
+        levelMap: [
+            "wwwwwwwwwwwwwwwwwwwwwwwwwww",
+            "w xx  xx  xx   x   x  xx w",
+            "w x x x  x  x x x xx x x w",
+            "w xx  xx   xa x x  x  xx w",
+            "w x   xo  x   x X  x   x w",
+            "w x   x  xxxx  x  xx  x  w",
+            "w                        w",
+            "wwwwwwwwwwwwwwwwwwwwwwwwwww"
+            ],
+        isLocked: true
+    },
 ];
 

@@ -18,6 +18,10 @@ body {
     text-align: center;
 }
 
+.level-lock {
+    color: yellow;
+}
+
 a {
     color: yellow;
 }
