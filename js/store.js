@@ -59,6 +59,16 @@ let store = new Vuex.Store({
                 width: storedLevel.levelMap[0].length * tileWidth,
                 name: levelIndex + 1
             }
+        },
+        unlockLevels(state, levelIndex) {
+            // Unlock all levels below the index. Use in case of initial loading
+            for (let storedLevelIndex = 0; storedLevelIndex < state.levels.length; storedLevelIndex++) {
+                state.levels[storedLevelIndex].isLocked = (levelIndex <= storedLevelIndex);
+            }
+        },
+        unlockLevel(state, levelIndex) {
+            state.levels[levelIndex].isLocked = false;
+            localStorage.unlockedLevelIndex = levelIndex + 1;
         }
     }
 });

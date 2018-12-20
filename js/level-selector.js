@@ -8,6 +8,12 @@ let levelSelector = Vue.component('LevelSelector', {
         }
     },
     methods: {
+
+    },
+    mounted() {
+        if (localStorage.unlockedLevelIndex) {
+            store.commit('unlockLevels', localStorage.unlockedLevelIndex);
+        }
     }
 });
 

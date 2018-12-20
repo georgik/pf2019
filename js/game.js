@@ -151,6 +151,7 @@ let gameStage = Vue.component('GameStage', {
             this.moveActor(avatar, vectorX, vectorY);
 
             if (this.isSolved()) {
+                store.commit('unlockLevel', this.$props.levelIndex + 1);
                 this.$router.push({ path: `/level/${this.$props.levelIndex + 1}/complete` });
             }
         },
