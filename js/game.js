@@ -70,6 +70,14 @@ Vue.component('level-access-button', {
     }
 });
 
+let resetComponent = Vue.component('reset-component', {
+    template: '#reset-component-template',
+    store,
+    mounted() {
+        store.commit('unlockLevel', 0);
+    }
+});
+
 
 let gameStage = Vue.component('GameStage', {
     template: '#game-stage-template',

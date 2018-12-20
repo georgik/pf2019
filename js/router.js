@@ -8,7 +8,8 @@ function levelIndexMapper (route) {
 const routes = [
     { path: '/', component: levelSelector },
     { path: '/level/:levelIndex', component: gameStage, props: levelIndexMapper },
-    { path: '/level/:levelIndex/complete', component: levelComplete, props: levelIndexMapper }
+    { path: '/level/:levelIndex/complete', component: levelComplete, props: levelIndexMapper },
+    { path: '/reset', component: resetComponent }
 ];
 
 
