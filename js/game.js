@@ -165,8 +165,27 @@ let gameStage = Vue.component('GameStage', {
         },
         mouseClicked: function (event) {
             let avatar = this.$store.state.actors[0];
-            let deltaX = event.clientX - avatar.x - 32;
-            let deltaY = event.clientY - avatar.y - 32;
+            let rect = event.currentTarget.getBoundingClientRect();
+            let scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let top = rect.top + scrollTop;
+            let left = rect.left + scrollLeft;
+            let deltaX = event.clientX - avatar.x - 32 - left;
+            let deltaY = event.clientY - avatar.y - 32 - top;
+
+            // Click within the avatar
+            if (Math.abs(deltaX) < 32) {
+                deltaX = 0;
+            }
+
+            if (Math.abs(deltaY) < 32) {
+                deltaY = 0;
+            }
+
+            // Do not move in case of click inside the icon of avatar
+            if ((deltaX === 0) && (deltaY === 0)) {
+                return;
+            }
 
             if (Math.abs(deltaX) > Math.abs(deltaY)) {
                 if (deltaX > 0) {
