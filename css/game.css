@@ -61,6 +61,15 @@ a {
     position: relative;
 }
 
+/*
+    To make DIV element listen to keyboard event, it's necessary to set tabindex.
+    e.g. tabindex="0", that will cause glow of the element when focused.
+    This CSS is removing the glow.
+ */
+#game:focus {
+    outline:none;
+}
+
 .navigation-button {
     cursor: pointer;
     text-align:left;

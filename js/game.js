@@ -163,6 +163,11 @@ let gameStage = Vue.component('GameStage', {
                 this.$router.push({ path: `/level/${this.$props.levelIndex + 1}/complete` });
             }
         },
+        moveMainAvatar: function(vectorX, vectorY) {
+            // Helper method when Avatar is not known. E.g. for keyboard
+            let avatar = this.$store.state.actors[0];
+            this.moveAvatar(avatar, vectorX, vectorY);
+        },
         mouseClicked: function (event) {
             let avatar = this.$store.state.actors[0];
             let rect = event.currentTarget.getBoundingClientRect();
@@ -200,6 +205,18 @@ let gameStage = Vue.component('GameStage', {
                     this.moveAvatar(avatar, 0, -1);
                 }
             }
+        },
+        keyUp: function () {
+            this.moveMainAvatar(0, -1);
+        },
+        keyDown: function () {
+            this.moveMainAvatar(0, 1);
+        },
+        keyLeft: function () {
+            this.moveMainAvatar(-1, 0);
+        },
+        keyRight: function () {
+            this.moveMainAvatar(1, 0);
         }
     },
     created() {

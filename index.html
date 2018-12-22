@@ -74,7 +74,13 @@
   <div >
   <navigation-bar></navigation-bar>
     <div id="game"
-         @click="mouseClicked">
+         @click="mouseClicked"
+         @keyup.up="keyUp"
+         @keyup.down="keyDown"
+         @keyup.left="keyLeft"
+         @keyup.right="keyRight"
+         tabindex="0"
+    >
       <playground></playground>
       <stage></stage>
     </div>
