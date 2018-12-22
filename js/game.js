@@ -222,5 +222,9 @@ let gameStage = Vue.component('GameStage', {
     created() {
         store.commit("loadLevel", this.$props.levelIndex);
     },
+    mounted() {
+        // Dispatching keyboard events requires focus on element
+        this.$refs.game.focus();
+    }
 });
 
