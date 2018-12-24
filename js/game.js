@@ -78,7 +78,6 @@ let resetComponent = Vue.component('reset-component', {
     }
 });
 
-
 let gameStage = Vue.component('GameStage', {
     template: '#game-stage-template',
     store,
@@ -87,6 +86,14 @@ let gameStage = Vue.component('GameStage', {
             type: Number,
             default: 0
         }
+    },
+    beforeRouteUpdate(to, from, next) {
+        let realIndex = to.params.levelIndex - 1;
+        // Do not reload level when we're displaying dialog like Complete message
+        if (!to.path.endsWith("complete")) {
+            store.commit("loadLevel", realIndex);
+        }
+        next();
     },
     methods: {
         getTile: function(coordX, coordY) {

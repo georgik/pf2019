@@ -91,6 +91,14 @@ a {
     float:right;
 }
 
+.level-complete {
+    position: absolute;
+    z-index: 10;
+    background: blue;
+    border: 2px solid yellow;
+    padding: 6px;
+}
+
 @media (max-width: 340px) {
     .level-word {
         display: none;

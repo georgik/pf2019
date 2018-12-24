@@ -57,7 +57,7 @@
 </script>
 
 <script type="text/x-template" id="level-complete-template">
-  <div>
+  <div class="level-complete">
     <div id="congratulation">Congratulations!</div>
     <div>
       <router-link :to="`/level/${levelIndex + 1}`"><i class="fa fa-redo"></i> Play again</router-link>
@@ -69,6 +69,7 @@
     </div>
   </div>
 </script>
+
 
 <script type="text/x-template" id="game-stage-template">
   <div >
@@ -85,6 +86,7 @@
       <playground></playground>
       <stage></stage>
     </div>
+    <router-view></router-view>
   </div>
 </script>
 
