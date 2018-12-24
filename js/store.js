@@ -18,6 +18,9 @@ let store = new Vuex.Store({
         actors: [ ]
     },
     mutations: {
+        updateName(state, { actor, name}) {
+            actor.name = name;
+        },
         moveVector(state, { actor, vectorX, vectorY }) {
             actor.x += vectorX * state.tile.width;
             actor.y += vectorY * state.tile.height;

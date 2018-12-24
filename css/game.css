@@ -57,6 +57,10 @@ a {
     background: url(../data/images/gfx64/tiles.png) -256px -192px;
 }
 
+.actor-mfd-final {
+    background: url(../data/images/gfx64/tiles.png) -384px -192px;
+}
+
 #game {
     position: relative;
 }

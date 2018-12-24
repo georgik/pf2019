@@ -125,7 +125,18 @@ let gameStage = Vue.component('GameStage', {
             if (!this.isWalkable(actor.x + vectorX * tileWidth, actor.y + vectorY * tileHeight)) {
                 return false;
             }
-            store.commit('moveVector', { actor, vectorX, vectorY });
+            store.commit("moveVector", { actor, vectorX, vectorY });
+
+            // Update name of actor when it's final
+            if (this.isFinalPosition(actor.x, actor.y)) {
+                if (actor.name === "mfd") {
+                    store.commit("updateName", { actor: actor, name: "mfd-final"});
+                }
+            } else {
+                if (actor.name === "mfd-final") {
+                    store.commit("updateName", { actor: actor, name: "mfd"})
+                }
+            }
             return true;
         },
         isSolved() {
