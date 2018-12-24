@@ -140,9 +140,10 @@ let gameStage = Vue.component('GameStage', {
             return true;
         },
         isSolved() {
+            // Level is solved when no actor with title mfd is left
             for (let actorIndex=1; actorIndex<this.$store.state.actors.length; actorIndex++) {
                 let actor = this.$store.state.actors[actorIndex];
-                if (!this.isFinalPosition(actor.x, actor.y)) {
+                if (actor.name === "mfd") {
                     return false;
                 }
             }
