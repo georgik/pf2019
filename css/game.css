@@ -4,6 +4,10 @@ body {
     font-family: Arial, Verdana, sans-serif;
 }
 
+img {
+    border: 0;
+}
+
 .level-selector-button {
     font-size: 1.2em;
     background: darkslateblue;
@@ -39,15 +43,19 @@ a {
     width: 64px;
     height: 64px;
     position: absolute;
-    background: url(../data/images/gfx64/tiles.png) 0 0;
+}
+
+.tile- {
+    display: none;
+    content: url(../data/images/svg/lightning.svg);
 }
 
 .tile-w {
-    background: url(../data/images/gfx64/tiles.png) 0 -192px;
+    content: url(../data/images/svg/bricks.svg);
 }
 
 .tile-x {
-    background: url(../data/images/gfx64/tiles.png) -320px -192px;
+    content: url(../data/images/svg/lightning.svg);
 }
 
 
@@ -55,6 +63,19 @@ a {
     width: 64px;
     height: 64px;
     position: absolute;
+}
+
+
+.actor-avatar {
+    content: url(../data/images/svg/robot.svg);
+}
+
+.actor-mfd {
+    content: url(../data/images/svg/bulb-off.svg);
+}
+
+.actor-mfd-final {
+    content: url(../data/images/svg/bulb-on.svg);
 }
 
 #game {
