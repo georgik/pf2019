@@ -92,6 +92,7 @@ let gameStage = Vue.component('GameStage', {
         // Do not reload level when we're displaying dialog like Complete message
         if (!to.path.endsWith("complete")) {
             store.commit("loadLevel", realIndex);
+            this.$refs.game.focus();
         }
         next();
     },
