@@ -48,10 +48,27 @@
 </script>
 
 <script type="text/x-template" id="level-selector-template">
-  <div>Select level
+  <div>
+    <div class="level-selector">
+      <h2 class="level-selector-titile">Select level</h2>
 
-    <div v-for="(level, index) in levels" class="levelSelectorButton">
-      <level-access-button :isLocked="level.isLocked" :to="`/level/${index+1}`" :text="(index + 1).toString()"></level-access-button>
+      <div v-for="(level, index) in levels" class="level-selector-button">
+        <level-access-button :isLocked="level.isLocked" :to="`/level/${index+1}`" :text="(index + 1).toString()"></level-access-button>
+      </div>
+    </div>
+
+    <!-- Badges -->
+    <div id="badges" >
+      <span class="link"><i class="fa fa-info-circle"></i></span>
+
+      <a class="link" href="https://github.com/georgik/pf2019">
+        <i class="fab fa-github"></i></a>
+
+      <span class="badge">
+              <a class="link" href="https://georgik.rocks/tag/games">
+                  <img  alt="More games at https://georgik.rocks"
+                       src="data/images/gfx64/georgik-icon.png" /></a>
+          </span>
     </div>
   </div>
 </script>
@@ -59,12 +76,12 @@
 <script type="text/x-template" id="level-complete-template">
   <div class="level-complete">
     <div id="congratulation">Congratulations!</div>
-    <div>
-      <router-link :to="`/level/${levelIndex + 1}`"><i class="fa fa-redo"></i> Play again</router-link>
-      <router-link :to="`/level/${levelIndex + 2}`"><i class="fa fa-arrow-right "></i> Next level</router-link>
+    <div class="level-complete-buttons">
+      <router-link class="level-button" :to="`/level/${levelIndex + 1}`"><i class="fa fa-redo"></i> Play again</router-link>
+      <router-link class="level-button" :to="`/level/${levelIndex + 2}`"><i class="fa fa-arrow-right "></i> Next level</router-link>
     </div>
-    <div>
-      <a class="levelButton" id="webButton" href="https://georgik.rocks/tag/games" >
+    <div class="level-complete-buttons-final">
+      <a class="level-button" id="web-button" href="https://georgik.rocks/tag/games" >
         <i class="fa fa-thumbs-up" ></i>Visit PF 2019 website</a>
     </div>
   </div>
