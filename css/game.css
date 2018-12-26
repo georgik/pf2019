@@ -55,19 +55,6 @@ a {
     width: 64px;
     height: 64px;
     position: absolute;
-    background: url(../data/images/gfx64/tiles.png) 0 0;
-}
-
-.actor-avatar {
-    background: url(../data/images/gfx64/tiles.png) -322px -256px;
-}
-
-.actor-mfd {
-    background: url(../data/images/gfx64/tiles.png) -256px -192px;
-}
-
-.actor-mfd-final {
-    background: url(../data/images/gfx64/tiles.png) -384px -192px;
 }
 
 #game {

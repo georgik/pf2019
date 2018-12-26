@@ -36,7 +36,7 @@
 <script type="text/x-template" id="stage-template">
   <div>
     <div v-for="(actor, index) in actors">
-      <span :class="['actor actor-' + actor.name]" :style="{ top: actor.y + 'px', left: actor.x + 'px' }"></span>
+      <img :src="['data/images/svg/' + actor.image + '.svg']" class="actor" :style="{ top: actor.y + 'px', left: actor.x + 'px' }">
     </div>
   </div>
 </script>

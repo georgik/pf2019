@@ -20,6 +20,11 @@ let store = new Vuex.Store({
     mutations: {
         updateName(state, { actor, name}) {
             actor.name = name;
+            if (actor.name === "mfd") {
+               actor.image = "bulb-off";
+            } else {
+                actor.image = "bulb-on";
+            }
         },
         moveVector(state, { actor, vectorX, vectorY }) {
             actor.x += vectorX * state.tile.width;
@@ -39,6 +44,7 @@ let store = new Vuex.Store({
                     if (tile === "a") {
                         state.actors.unshift({
                             name: 'avatar',
+                            image: 'robot',
                             x: x * tileWidth,
                             y: y * tileHeight
                         });
@@ -47,6 +53,7 @@ let store = new Vuex.Store({
                     } else if (tile === "o") {
                         state.actors.push( {
                             name: 'mfd',
+                            image: 'bulb-off',
                             x: x * tileWidth,
                             y: y * tileHeight
                         });
