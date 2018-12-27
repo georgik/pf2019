@@ -62,7 +62,7 @@ let store = new Vuex.Store({
                 height: storedLevel.levelMap.length * tileWidth,
                 width: storedLevel.levelMap[0].length * tileWidth,
                 name: levelIndex + 1
-            }
+            };
 
             state.undoActors = null;
         },
@@ -84,7 +84,7 @@ let store = new Vuex.Store({
                 return;
             }
             state.actors = state.undoActors;
-            state.undoActors = null
+            state.undoActors = null;
         }
     }
 });
