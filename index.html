@@ -27,8 +27,8 @@
 <script type="text/x-template" id="playground-template">
   <div>
     <div v-for="(tileRow, rowIndex) in levelMap">
-            <img :class="['tile tile-' + tileName]" :style="{ top: rowIndex*64 + 'px', left: tileIndex*64 + 'px'}"
-                  v-for="(tileName, tileIndex) in tileRow">
+            <div :class="['tile tile-' + tileName]" :style="{ top: rowIndex*64 + 'px', left: tileIndex*64 + 'px'}"
+                 v-for="(tileName, tileIndex) in tileRow"></div>
     </div>
   </div>
 </script>
@@ -36,7 +36,7 @@
 <script type="text/x-template" id="stage-template">
   <div>
     <div v-for="(actor, index) in actors">
-      <img :class="['actor actor-' + actor.name]" :style="{ top: actor.y + 'px', left: actor.x + 'px' }">
+        <div :class="['actor actor-' + actor.name]" :style="{ top: actor.y + 'px', left: actor.x + 'px' }"></div>
     </div>
   </div>
 </script>

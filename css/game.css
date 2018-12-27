@@ -46,15 +46,16 @@ a {
 }
 
 .tile- {
-    content: url(../data/images/svg/grid.svg);
+    border: 0;
+    background: url("../data/images/svg/grid.svg") no-repeat center;
 }
 
 .tile-w {
-    content: url(../data/images/svg/bricks.svg);
+    background: url("../data/images/svg/bricks.svg") no-repeat center;
 }
 
 .tile-x {
-    content: url(../data/images/svg/lightning.svg);
+    background: url("../data/images/svg/lightning.svg") no-repeat center;
 }
 
 
@@ -66,15 +67,15 @@ a {
 
 
 .actor-avatar {
-    content: url(../data/images/svg/robot.svg);
+    background: url("../data/images/svg/robot.svg") no-repeat center;
 }
 
 .actor-mfd {
-    content: url(../data/images/svg/bulb-off.svg);
+    background: url("../data/images/svg/bulb-off.svg") no-repeat center;
 }
 
 .actor-mfd-final {
-    content: url(../data/images/svg/bulb-on.svg);
+    background: url("../data/images/svg/bulb-on.svg") no-repeat center;
 }
 
 #game {
