@@ -46,8 +46,7 @@ a {
 }
 
 .tile- {
-    display: none;
-    content: url(../data/images/svg/lightning.svg);
+    content: url(../data/images/svg/grid.svg);
 }
 
 .tile-w {
