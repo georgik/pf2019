@@ -42,7 +42,7 @@
 </script>
 
 <script type="text/x-template" id="level-access-button-template">
-  <component :is="type" :to="to" :class="classObject">
+  <component :is="type" :to="to" :class="classObject" class="level-selector-button">
     {{ value }}
   </component>
 </script>
@@ -52,7 +52,7 @@
     <div class="level-selector">
       <h2 class="level-selector-titile">Select level</h2>
 
-      <div v-for="(level, index) in levels" class="level-selector-button">
+      <div v-for="(level, index) in levels">
         <level-access-button :isLocked="level.isLocked" :to="`/level/${index+1}`" :text="(index + 1).toString()"></level-access-button>
       </div>
     </div>
