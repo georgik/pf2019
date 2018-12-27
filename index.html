@@ -20,7 +20,11 @@
 <script type="text/x-template" id="navigation-bar-template">
   <div class="navigation-bar">
     <span class="navigation-button"><router-link to="/"><i class="fa fa-arrow-left"></i></router-link></span>
-    <div class="level-title"><span class="level-word">Level </span>{{ levelName }}</div>
+    <div class="level-title">
+      <span :class="undoClassName">
+       <span :class="'navigation-button ' + undoClassName" @click="undo"><i class="fas fa-undo"></i>&nbsp;Undo</span>
+        &nbsp;-</span>
+      &nbsp;<span class="level-word">Level </span>{{ levelName }}</div>
   </div>
 </script>
 
@@ -103,6 +107,7 @@
          @keyup.down="keyDown"
          @keyup.left="keyLeft"
          @keyup.right="keyRight"
+         @keyup.space="undo"
          tabindex="0"
     >
       <playground></playground>

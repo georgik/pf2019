@@ -94,6 +94,7 @@ a {
 .navigation-button {
     cursor: pointer;
     text-align:left;
+    color: yellow;
 }
 
 .navigation-bar {
@@ -183,4 +184,8 @@ a {
     text-align: left;
     background: rgba(0,0,0,0.7);
     overflow: auto;
+}
+
+.not-undoable {
+    display: none;
 }

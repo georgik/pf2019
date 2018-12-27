@@ -15,7 +15,8 @@ let store = new Vuex.Store({
             height: 0,
             name: ""
         },
-        actors: [ ]
+        actors: [ ],
+        undoActors: null
     },
     mutations: {
         updateName(state, { actor, name}) {
@@ -62,6 +63,8 @@ let store = new Vuex.Store({
                 width: storedLevel.levelMap[0].length * tileWidth,
                 name: levelIndex + 1
             }
+
+            state.undoActors = null;
         },
         unlockLevels(state, levelIndex) {
             // Unlock all levels below the index. Use in case of initial loading
@@ -72,6 +75,16 @@ let store = new Vuex.Store({
         unlockLevel(state, levelIndex) {
             state.levels[levelIndex].isLocked = false;
             localStorage.unlockedLevelIndex = levelIndex + 1;
+        },
+        snapshot(state) {
+            state.undoActors = JSON.parse(JSON.stringify(state.actors));
+        },
+        undo(state) {
+            if (state.undoActors == null) {
+                return;
+            }
+            state.actors = state.undoActors;
+            state.undoActors = null
         }
     }
 });

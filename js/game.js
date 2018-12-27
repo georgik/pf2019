@@ -4,6 +4,17 @@ Vue.component('navigation-bar', {
     computed: {
         levelName() {
             return this.$store.state.level.name;
+        },
+        undoClassName() {
+            if (this.$store.state.undoActors == null) {
+                return 'not-undoable';
+            }
+            return 'undoable';
+        }
+    },
+    methods: {
+        undo: function () {
+            store.commit('undo');
         }
     }
 });
@@ -201,7 +212,7 @@ let gameStage = Vue.component('GameStage', {
             let left = rect.left + scrollLeft;
             let deltaX = event.clientX - avatar.x - 32 - left;
             let deltaY = event.clientY - avatar.y - 32 - top;
-
+            store.commit('snapshot');
             // Click within the avatar
             if (Math.abs(deltaX) < 32) {
                 deltaX = 0;
@@ -229,18 +240,26 @@ let gameStage = Vue.component('GameStage', {
                     this.moveAvatar(avatar, 0, -1);
                 }
             }
+
         },
         keyUp: function () {
+            store.commit('snapshot');
             this.moveMainAvatar(0, -1);
         },
         keyDown: function () {
+            store.commit('snapshot');
             this.moveMainAvatar(0, 1);
         },
         keyLeft: function () {
+            store.commit('snapshot');
             this.moveMainAvatar(-1, 0);
         },
         keyRight: function () {
+            store.commit('snapshot');
             this.moveMainAvatar(1, 0);
+        },
+        undo: function () {
+            store.commit('undo');
         }
     },
     created() {
