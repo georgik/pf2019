@@ -57,9 +57,11 @@
       </div>
     </div>
 
+    <router-view></router-view>
+
     <!-- Badges -->
     <div id="badges" >
-      <span class="link"><i class="fa fa-info-circle"></i></span>
+      <router-link to="/info" class="link"><i class="fa fa-info-circle"></i></router-link>
 
       <span class="badge">
       <a class="link" href="https://github.com/georgik/pf2019">
@@ -107,6 +109,28 @@
       <stage></stage>
     </div>
     <router-view></router-view>
+  </div>
+</script>
+
+<script type="text/x-template" id="info-template">
+  <div class="info">
+    <div class="navigation-bar">
+      <router-link to="/">
+        <i class="fa fa-arrow-left" ></i></router-link>
+    </div>
+    <div class="infoContent">
+      <h2>PF 2019 - Sokoban-like Puzzle Game</h2>
+      <div>Author: <a href="https://georgik.rocks">Juraj Michálek</a></div>
+      <div>Source code: <a href="https://github.com/georgik/pf2019">github.com/georgik/pf2019</a></div>
+      <div>Technologies:
+        <ul>
+          <li><a href="https://vuejs.org/">Vue.js</a></li>
+          <li><a href="https://vuex.vuejs.org/">Vuex</a></li>
+          <li><a href="https://router.vuejs.org/">Vue Router</a></li>
+        </ul>
+      </div>
+      <div>Artwork: CC OpenClips - Pixabay.com (<a href="img/images/images.txt">list</a>)</div>
+  </div>
   </div>
 </script>
 

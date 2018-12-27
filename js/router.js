@@ -6,7 +6,17 @@ function levelIndexMapper (route) {
 }
 
 const routes = [
-    { path: '/', component: levelSelector },
+    {
+        path: '/', component: levelSelector,
+        children: [{
+            path: '/info',
+            component: infoComponent
+        }]
+    },
+    {
+        path: '/xxinfo',
+        component: infoComponent
+    },
     {
         path: '/level/:levelIndex',
         component: gameStage,

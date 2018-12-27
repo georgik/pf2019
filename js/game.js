@@ -78,6 +78,10 @@ let resetComponent = Vue.component('reset-component', {
     }
 });
 
+let infoComponent = Vue.component('info', {
+    template: '#info-template'
+});
+
 let gameStage = Vue.component('GameStage', {
     template: '#game-stage-template',
     store,
