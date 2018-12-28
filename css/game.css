@@ -2,6 +2,8 @@ body {
     background: #121d35;
     color: white;
     font-family: Arial, Verdana, sans-serif;
+    /* Disable zooming on double-tap for iOS */
+    touch-action: manipulation;
 }
 
 img {
