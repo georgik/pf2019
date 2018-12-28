@@ -3,7 +3,7 @@ const datadisc = [
         levelMap: [
             "        ",
             "wwwwwwww",
-            "wa o x w",
+            "warorx w",
             "w      w",
             "wwwwwwww"],
         isLocked: false

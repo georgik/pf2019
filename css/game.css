@@ -52,6 +52,10 @@ a {
     background: url("../data/images/svg/grid.svg") no-repeat center;
 }
 
+.tile-r {
+    background: url("../data/images/svg/arrow-right.svg") no-repeat center;
+}
+
 .tile-w {
     background: url("../data/images/svg/bricks.svg") no-repeat center;
 }

@@ -119,7 +119,7 @@ let gameStage = Vue.component('GameStage', {
         },
         isWalkable: function(coordX, coordY) {
             let tile = this.getTile(coordX, coordY)
-            return ((tile === " ") || (tile === "x") || (tile === "o"));
+            return ((tile === " ") || (tile === "x") || (tile === "o") || (tile === "r"));
         },
         isFinalPosition: function(coordX, coordY) {
             return (this.getTile(coordX, coordY) === "x");
