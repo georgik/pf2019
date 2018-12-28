@@ -72,6 +72,21 @@ a {
     position: absolute;
 }
 
+.tile-info {
+    width: 64px;
+    height: 64px;
+    float: left;
+}
+
+.tile-text {
+    height: 64px;
+    float: left;
+}
+
+.info-line {
+    font-size: 2.1em;
+    clear: left;
+}
 
 .actor-avatar {
     background: url("../data/images/svg/robot.svg") no-repeat center;

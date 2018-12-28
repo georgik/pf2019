@@ -57,11 +57,35 @@
 <script type="text/x-template" id="level-selector-template">
   <div>
     <div class="level-selector">
+      <h1>PF 2019 - Sokoban</h1>
       <h2 class="level-selector-titile">Select level</h2>
 
       <div v-for="(level, index) in levels">
         <level-access-button :isLocked="level.isLocked" :to="`/level/${index+1}`" :text="(index + 1).toString()"></level-access-button>
       </div>
+
+      <h2>How to play</h2>
+      <div>
+        <div class="info-line">
+          <div class="tile-info actor-mfd"></div>
+          <div class="tile-text">+</div>
+          <div class="tile-info tile-x"></div>
+          <div class="tile-text">=</div>
+          <div class="tile-info actor-mfd-final"></div>
+        </div>
+
+        <div class="info-line">&nbsp;</div>
+        <div class="info-line">
+          <div class="tile-info actor-avatar"></div>
+          <div class="tile-text"><i class="far fa-keyboard"></i> <i class="fas fa-mouse-pointer"></i></div>
+        </div>
+
+        <div class="info-line">
+          <div>Space = <i class="fas fa-undo"></i> Undo</div>
+        </div>
+
+      </div>
+
     </div>
 
     <router-view></router-view>
