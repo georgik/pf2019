@@ -73,6 +73,9 @@ let store = new Vuex.Store({
             }
         },
         unlockLevel(state, levelIndex) {
+            if (levelIndex >= state.levels.length) {
+                return;
+            }
             state.levels[levelIndex].isLocked = false;
             localStorage.unlockedLevelIndex = levelIndex + 1;
         },
