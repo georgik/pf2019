@@ -9,6 +9,12 @@ let levelComplete = Vue.component('LevelComplete', {
         }
     },
     computed: {
+        nextLevelClassName() {
+            if (this.$store.state.levels.length === (this.levelIndex + 1) ) {
+                return 'last-level';
+            }
+            return 'next-level';
+        }
     },
     methods: {
     }

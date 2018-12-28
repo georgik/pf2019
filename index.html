@@ -90,7 +90,7 @@
     <div id="congratulation">Congratulations!</div>
     <div class="level-complete-buttons">
       <router-link class="level-button" :to="`/level/${levelIndex + 1}`"><i class="fa fa-redo"></i> Play again</router-link>
-      <router-link class="level-button" :to="`/level/${levelIndex + 2}`"><i class="fa fa-arrow-right "></i> Next level</router-link>
+      <router-link :class="'level-button ' + nextLevelClassName" :to="`/level/${levelIndex + 2}`"><i class="fa fa-arrow-right "></i> Next level</router-link>
     </div>
     <div class="level-complete-buttons-final">
       <a class="level-button" id="web-button" href="https://georgik.rocks/tag/games" >
