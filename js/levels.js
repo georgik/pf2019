@@ -30,6 +30,16 @@ const datadisc = [
         isLocked: true
     },
     {
+        // Inspired by: http://borgar.net/programs/sokoban/
+        levelMap: [
+            "wwwww  ",
+            "wa  w  ",
+            "w wowww",
+            "w o xxw",
+            "wwwwwww"],
+        isLocked: true
+    },
+    {
         levelMap: [
             "wwwwwwwwwwww",
             "w        aw",
@@ -69,6 +79,7 @@ const datadisc = [
         isLocked: true
     },
     {
+        // Inspired by: http://borgar.net/programs/sokoban/
         levelMap: [
             "     wwww",
             "    w x w",
@@ -79,6 +90,45 @@ const datadisc = [
             "wxx w    ",
             "w   w    ",
             "wwwww    "],
+        isLocked: true
+    },
+    {
+        // Inspired by: http://borgar.net/programs/sokoban/
+        levelMap: [
+            " wwwww ",
+            "wwx xww",
+            "wxoooxw",
+            "w oao w",
+            "wxoooxw",
+            "wwx xww",
+            " wwwww "],
+        isLocked: true
+    },
+    {
+        // Inspired by: http://borgar.net/programs/sokoban/
+        levelMap: [
+            "wwwwwwwww",
+            "wa  w   w",
+            "w o w o w",
+            "w  x x  w",
+            "www w www",
+            "w  x x  w",
+            "w o w o w",
+            "w   w   w",
+            "wwwwwwwww"
+        ],
+        isLocked: true
+    },
+    {
+        // Inspired by: http://borgar.net/programs/sokoban/
+        levelMap: [
+            "  wwww    ",
+            "www  wwwww",
+            "w  o  axxw",
+            "w o    w w",
+            "www wwww w",
+            "  w      w",
+            "  wwwwwwww"],
         isLocked: true
     },
     {
