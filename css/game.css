@@ -60,6 +60,11 @@ a {
     background: url("../data/images/svg/lightning.svg") no-repeat center;
 }
 
+.tile-f {
+    width: 580px;
+    height: 320px;
+    background: url("../data/images/svg/pf2019-message.svg") no-repeat center;
+}
 
 .actor {
     width: 64px;

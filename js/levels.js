@@ -133,14 +133,14 @@ const datadisc = [
     },
     {
         levelMap: [
-            "wwwwwwwwwwwwwwwwwwwwwwwwwww",
-            "w xx  xx  xx   x   x  xx w",
-            "w x x x  x  x x x xx x x w",
-            "w xx  xx   xa x x  x  xx w",
-            "w x   xo  x   x X  x   x w",
-            "w x   x  xxxx  x  xx  x  w",
-            "w                        w",
-            "wwwwwwwwwwwwwwwwwwwwwwwwwww"
+            "f        ",
+            "",
+            "",
+            "",
+            "",
+            "wwwwwwwww",
+            "wao    xw",
+            "wwwwwwwww"
             ],
         isLocked: true
     },
