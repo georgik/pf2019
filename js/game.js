@@ -2,8 +2,8 @@ const store = new Vuex.Store({
     state: {
         levelMap:  [
             "wwwww",
-            "w  ww",
-            "w   w",
+            "w w w",
+            "w oxw",
             "wwwww"]
     }
 });
@@ -13,24 +13,14 @@ Vue.component('playground', {
         store,
         props: {},
         computed: {
-
             levelMap() {
                 return this.$store.state.levelMap;
             }
-        },
-
-        methods: {
-            selectLanguage: function(language) {
-            }
         }
-    });
-
-
-
-
+});
 
 var game = new Vue({
   el: '#game',
-  data: {
-  }
-})
+  data: {}
+});
+
