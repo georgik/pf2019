@@ -3,18 +3,17 @@ body {
 }
 
 .tile {
-    width: 64;
+    width: 64px;
     height: 64px;
-    background: red;
     position: absolute;
-    background: url(../data/images/gfx64/tiles.png) 0 0;
+    background: url("../data/images/gfx64/tiles.png") 0 0;
 }
 
 .tile-w {
-    background: url(../data/images/gfx64/tiles.png) 0 192px;
+    background: url("../data/images/gfx64/tiles.png") 0 -192px;
 }
 
 
 .tile-y {
-    background: url(../data/images/gfx64/tiles.png) 320px 64px;
+    background: url("../data/images/gfx64/tiles.png") -320px -64px;
 }
