@@ -14,6 +14,10 @@
             :class="['tile tile-' + tileName]"
             :style="{ top: rowIndex*64 + 'px', left: tileIndex*64 + 'px'}"></span>
     </div>
+    <div v-for="(gameObject, index) in gameObjects"
+            :class="['game-object game-object-' + gameObject.name]"
+            :style="{ top: gameObject.y*64 + 'px', left: gameObject.x*64 + 'px'}">
+    </div>
     </div>
 </script>
 

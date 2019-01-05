@@ -17,3 +17,18 @@ body {
 .tile-y {
     background: url("../data/images/gfx64/tiles.png") -320px -64px;
 }
+
+.game-object {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    background: url("../data/images/gfx64/tiles.png") -192px -192px;
+}
+
+.game-object-avatar {
+    background: url("../data/images/gfx64/tiles.png") -192px 0;
+}
+
+.game-object-box {
+    background: url("../data/images/gfx64/tiles.png") -128px 0;
+}
