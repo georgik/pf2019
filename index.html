@@ -8,7 +8,7 @@
 <body>
 
 <script type="text/x-template" id="playground-template">
-    <div>
+  <div @click="mouseClicked">
     <div v-for="(tileRow, rowIndex) in levelMap">
         <span  v-for="(tileName, tileIndex) in tileRow"
             :class="['tile tile-' + tileName]"
@@ -18,11 +18,11 @@
             :class="['game-object game-object-' + gameObject.name]"
             :style="{ top: gameObject.y*64 + 'px', left: gameObject.x*64 + 'px'}">
     </div>
-    </div>
+  </div>
 </script>
 
 <div id="game">
-    <playground></playground>
+  <playground></playground>
 </div>
 
 </body>
