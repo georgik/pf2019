@@ -50,8 +50,17 @@ Vue.component('playground', {
             let left = rect.left + scrollLeft;
 
             let avatar = this.$store.state.gameObjects[0];
-            let deltaX = (event.clientX - left)/64 - avatar.x;
-            let deltaY = (event.clientY - top)/64 - avatar.y;
+            let deltaX = (event.clientX - left - 32)/64 - avatar.x;
+            let deltaY = (event.clientY - top - 32)/64 - avatar.y;
+
+            // Ignore clicks within avatar box
+            if (Math.abs(deltaX) < 0.5) {
+                deltaX = 0;
+            }
+
+            if (Math.abs(deltaY) < 0.5) {
+                deltaY = 0;
+            }
 
             // Do not move in case of click inside the icon of avatar
             if ((deltaX === 0) && (deltaY === 0)) {
