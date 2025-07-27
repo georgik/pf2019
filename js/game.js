@@ -102,12 +102,34 @@ let gameStage = Vue.component('GameStage', {
             default: 0
         }
     },
+    computed: {
+        actualLevelIndex() {
+            // If props are not correctly set, get level index from route
+            if (this.$route && this.$route.params && this.$route.params.levelIndex) {
+                return parseInt(this.$route.params.levelIndex) - 1;
+            }
+            return this.levelIndex;
+        }
+    },
+    watch: {
+        '$route'(to, from) {
+            if (to.params.levelIndex) {
+                const newLevelIndex = parseInt(to.params.levelIndex) - 1;
+                if (!to.path.endsWith('complete')) {
+                    store.commit('loadLevel', newLevelIndex);
+                }
+            }
+        }
+    },
     beforeRouteUpdate(to, from, next) {
         let realIndex = to.params.levelIndex - 1;
+        
         // Do not reload level when we're displaying dialog like Complete message
         if (!to.path.endsWith("complete")) {
             store.commit("loadLevel", realIndex);
-            this.$refs.game.focus();
+            if (this.$refs.game) {
+                this.$refs.game.focus();
+            }
         }
         next();
     },
@@ -194,8 +216,25 @@ let gameStage = Vue.component('GameStage', {
             this.moveActor(avatar, vectorX, vectorY);
 
             if (this.isSolved()) {
-                store.commit('unlockLevel', this.$props.levelIndex + 1);
-                this.$router.push({ path: `/level/${this.$props.levelIndex + 1}/complete` });
+                const currentLevelIndex = this.actualLevelIndex;
+                const nextLevelIndex = currentLevelIndex + 1;
+                
+                store.commit('unlockLevel', nextLevelIndex);
+                
+                // Navigate to current level's complete page (URL level number = array index + 1)
+                const completePath = `/level/${currentLevelIndex + 1}/complete`;
+                
+                // Check if router push is available
+                if (this.$router && typeof this.$router.push === 'function') {
+                    try {
+                        this.$router.push(completePath);
+                    } catch (err) {
+                        // Fallback: try using window.location
+                        window.location.hash = '#' + completePath;
+                    }
+                } else {
+                    window.location.hash = '#' + completePath;
+                }
             }
         },
         moveMainAvatar: function(vectorX, vectorY) {
@@ -263,7 +302,7 @@ let gameStage = Vue.component('GameStage', {
         }
     },
     created() {
-        store.commit("loadLevel", this.$props.levelIndex);
+        store.commit("loadLevel", this.actualLevelIndex);
     },
     mounted() {
         // Dispatching keyboard events requires focus on element
