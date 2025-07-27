@@ -4,6 +4,8 @@ Pour Feliciter 2019 is a Sokoban-inspired puzzle game created as a New Year's gr
 
 **Play the game online**: [PF2019 Game](https://georgik.rocks/html5-game-sokoban-pf2019/)
 
+![PF2019 Game Screenshot](docs/images/pf2019.webp)
+
 ## Features
 
 - **Classic Sokoban Gameplay**: Push light bulbs (o) onto lightning spots (x) throughout different levels.
